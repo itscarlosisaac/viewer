@@ -41,7 +41,7 @@ export const Carousel = () => {
 
   useEffect(() => {
     setActiveImage(images[0])
-  }, [state])
+  }, [images])
 
   const nextItem = () => {
     if (active === images.length - 1) {

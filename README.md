@@ -8,18 +8,16 @@ Run `yarn setup` to install all the dependencies in the api and front end applic
 
 
 ## Available Scripts
--------
-In the project directory, you can run:
 
-### `yarn all`
+#### `yarn all`
 
-Runs the front end and api server app in the development mode.
+- Runs the front end and api server app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `yarn start:front-end`
+#### `yarn start:front-end`
 - Runs the front end only.
 Note: The front end needs the api server to load the images.
-### `yarn start:back-end`
+#### `yarn start:back-end`
 - Runs the api server only.
 ## Part 1 (backend)
 ----
