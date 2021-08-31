@@ -6,7 +6,7 @@ interface useFetchInterface {
   error: null | Error
 }
 
-export const useFetch = (url: string, defaultState: any = { }) => {
+export const useFetch = (url: string, defaultState = { }) => {
   const [ state, setState ] = useState<useFetchInterface>({
     data: defaultState,
     loading: false,
