@@ -1,19 +1,33 @@
 .app__carousel {
   border-left: 1px solid #5b5b5b;
   width:100vw;
-  height: 100%;
-  max-width: 500px;
+  height: 80%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  position: relative;
 
+  &--loading {
+    width:100vw;
+    height: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
   .close {
     width: 35px;
     height: 35px;
-    position: relative;
-
+    position: absolute;
+    right:20px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 10;
     &:before,
     &:after {
       position: absolute;
@@ -33,18 +47,6 @@
     }
     &:after {
       transform: rotate(-45deg);
-    }
-  }
-
-  &__header {
-    box-sizing: border-box;
-    padding: 20px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    width: 100%;
-    .close {
-      cursor: pointer;
     }
   }
 
@@ -171,6 +173,105 @@
       }
       &:active {
         background-color: darken( #fbad18, 30% )
+      }
+    }
+  }
+}
+
+@media all and (min-width: 480px ) {
+  .app__carousel {
+    height: 100%;
+    max-width: 500px;
+
+    &--loading {
+      width:100vw;
+      height: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .close {
+      width: 35px;
+      height: 35px;
+      position: relative;
+
+      &:before,
+      &:after {
+        position: absolute;
+        left:0;
+        top:0;
+        right:0;
+        bottom: 0;
+        margin: auto;
+        content: "";
+        display: block;
+        width: 3px;
+        height: 100%;
+        background-color:white;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &__header {
+      box-sizing: border-box;
+      padding: 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      width: 100%;
+      .close {
+        cursor: pointer;
+      }
+    }
+
+    .app__carousel__slides {
+      display: flex;
+      max-width: 250px;
+      max-height: 250px;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0 auto;
+      position: relative;
+      .app__product__item {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left:0;
+        top: 0;
+        opacity: 0;
+      }
+    }
+
+    &__inner {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 20px;
+      position: relative;
+      .nav {
+        border-radius: 4px;
+        position: absolute;
+        top : 0;
+        bottom: 0;
+        margin: auto;
+        height: 40px;
+        width: 40px;
+        font-size: 30px;
+        cursor: pointer;
+        color: black;
+        background-color:#fbad18;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }

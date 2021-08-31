@@ -1,4 +1,5 @@
 ## Setup Script
+### Run `yarn install` to install all the dependencies main directory.
 
 ### Run `yarn setup` to install all the dependencies in the api and front end application
 ## Available Scripts

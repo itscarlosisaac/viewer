@@ -13,16 +13,22 @@
     .zoom__handler {
       margin: 0 20px;
     }
+    .zoom__out,
+    .zoom__in{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size: 24px;
+      font-weight: 600;
+      background-color:#fbad18;
+      height: 24px;
+      width: 24px;
+      text-align: center;
+    }
     .zoom__out {
-      height: 20px;
-      width: 20px;
-      background: #5b5b5b;
       display: block;
     }
     .zoom__in {
-      height: 20px;
-      width: 20px;
-      background: #5b5b5b;
       display: flex;
       position: relative;
     }
