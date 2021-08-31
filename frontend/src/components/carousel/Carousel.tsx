@@ -86,7 +86,7 @@ export const Carousel = (props: CarouselProps) => {
   return (
     <div className="app__carousel">
       <header className="app__carousel__header">
-        <button className="close" onClick={dismissCarousel}>CLOSE</button>
+        <div className="close" onClick={dismissCarousel}></div>
       </header>
       <section className="app__carousel__inner">
         <div className="app__carousel__inner__slides">

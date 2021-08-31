@@ -4,6 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "setup:back-end": "yarn --cwd ./api/ install",
+    "setup:front-end": "yarn --cwd ./frontend/ install",
+    "setup": "concurrently yarn:setup:*",
     "start:front-end" : "yarn --cwd ./frontend start",
     "start:back-end" : "yarn --cwd ./api/ start",
     "all": "concurrently yarn:start:*"
