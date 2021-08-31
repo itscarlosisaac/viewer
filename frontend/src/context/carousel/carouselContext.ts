@@ -4,7 +4,7 @@ interface carouselContextInitialState {
   showing: boolean;
   setShowing: Function,
   carouselDataUrl: string,
-  setCarouselUrl: any
+  setCarouselUrl: Function
 }
 
 const initialState: carouselContextInitialState = {

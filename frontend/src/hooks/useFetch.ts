@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 interface useFetchInterface {
-  data: any[]
+  data: any
   loading: boolean,
   error: null | Error
 }
 
-
-export const useFetch = (url: string) => {
+export const useFetch = (url: string, defaultState: any = { }) => {
   const [ state, setState ] = useState<useFetchInterface>({
-    data: [],
+    data: defaultState,
     loading: false,
     error: null
   });

@@ -2,54 +2,46 @@ import React, { useContext, useEffect, useState} from 'react'
 import { CarouselItem } from './CarouselItem'
 import { CarouselContext } from '../../context'
 import { calculateFileSize } from '../../utils/calculateSize'
-
-interface CarouselItemInterface{
+import { Loading } from '../common/Loading';
+import { useFetch } from '../../hooks/useFetch';
+interface CarouselItemInterface {
   name: string,
   size: number,
   url: string,
   setUrl: string
 }
 
-const carouselInitialState = {
+const carouselInitialState: CarouselItemInterface = {
   name: "",
   size: 0,
   url: "",
   setUrl: ""
 }
-
 interface CarouselProps {
-  items?: CarouselItemInterface[],
+  downloadUrl: string,
+  images: CarouselItemInterface[],
 }
 
-export const Carousel = (props: CarouselProps) => {
+const sliderDataInitialState: CarouselProps  = {
+  images: [],
+  downloadUrl: ""
+}
+
+export const Carousel = () => {
 
   const [ active, setActive] = useState(0);
-  const [ isLoading, setLoading] = useState<boolean>(false);
   const { setShowing, carouselDataUrl } = useContext(CarouselContext)
 
-  const [ activeImage, setActiveImage] = useState<CarouselItemInterface>(carouselInitialState)
+  const [state] = useFetch(carouselDataUrl, sliderDataInitialState );
+  const { loading, data, error } = state;
 
-  const [ sliderData, setSliderData] = useState<any>({
-    images: [],
-    downloadUrl: ""
-  })
+  const [ activeImage, setActiveImage ] = useState<CarouselItemInterface>(carouselInitialState)
 
-  const { images, downloadUrl } = sliderData;
+  const { images, downloadUrl } = data;
 
   useEffect(() => {
-    setLoading(true)
-    fetch(carouselDataUrl)
-      .then(data => data.json())
-      .then(images => {
-        setSliderData({
-          images: images.data,
-          downloadUrl: images.downloadUrl
-        })
-        setActiveImage(images.data[0])
-        setLoading(false)
-      }).catch(e => console.error(e) )
-  }, [carouselDataUrl])
-
+    setActiveImage(images[0])
+  }, [state])
 
   const nextItem = () => {
     if (active === images.length - 1) {
@@ -79,8 +71,21 @@ export const Carousel = (props: CarouselProps) => {
 
   const dismissCarousel = () => {
     setShowing(false)
-    setSliderData({ })
     setActive(0)
+  }
+
+
+  if (error) {
+    return <div> An Error occured while loading.</div>
+  }
+
+
+  if (loading) {
+    return (
+      <div className="app__carousel--loading">
+        <Loading/>
+      </div>
+    )
   }
 
   return (
@@ -114,8 +119,8 @@ export const Carousel = (props: CarouselProps) => {
           }
         </div>
         <div className="app__carousel__meta">
-          <p>{calculateFileSize(activeImage.size)}</p>
-          <h2>{activeImage.name}</h2>
+          <p>{calculateFileSize(activeImage?.size)}</p>
+          <h2>{activeImage?.name}</h2>
         </div>
       </section>
       <footer className="app__carousel__footer">

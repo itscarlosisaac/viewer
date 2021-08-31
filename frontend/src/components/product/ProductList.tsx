@@ -7,38 +7,25 @@ import { useFetch } from '../../hooks/useFetch';
 import { ZoomContext, CarouselContext } from '../../context';
 
 import { rootUrl } from '../../config';
-
-interface ProductListInterface {
-  images: ProductItemProps[]
-}
-
 interface ProductItemProps {
-  zoom: number;
   name: string,
   size: number,
-  url: string
-}
-
-interface ProductStateInterface {
-  isLoading: boolean,
-  active: any,
-  products: any,
-  error: Error | null
+  url: string,
+  setUrl: string
 }
 
 export const ProductList = () => {
 
-
-  const [state] = useFetch(rootUrl)
+  const [state] = useFetch(rootUrl, [])
 
   const { loading, data, error } = state
-  const [ active, setActive ] = useState<any>({})
+  const [ active, setActive ] = useState<ProductItemProps | null>(null)
 
   const { zoom } = React.useContext(ZoomContext)
   const { showing, setShowing, setCarouselUrl } = React.useContext(CarouselContext)
 
   useEffect(() => {
-    if (!showing) { setActive({}) }
+    if (!showing) { setActive(null) }
   }, [showing])
 
   const toogleCarousel = (data: any): void => {

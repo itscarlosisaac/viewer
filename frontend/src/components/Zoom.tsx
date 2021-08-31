@@ -11,7 +11,7 @@ export const Zoom = (): JSX.Element => {
 
   return (
     <div className="app__zoom__manager">
-      <div className="zoom__out"> - </div>
+      <div className="zoom__out">-</div>
       <input
         className="zoom__handler"
         onChange={handleChange}
@@ -21,7 +21,7 @@ export const Zoom = (): JSX.Element => {
         max="2"
         value={zoom}
         step="0.1"/>
-      <div className="zoom__in"> + </div>
+      <div className="zoom__in">+</div>
     </div>
   )
 }

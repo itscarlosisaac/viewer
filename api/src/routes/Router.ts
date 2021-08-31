@@ -32,7 +32,7 @@ router.get('/list/:setId', (req: Request, res: Response) => {
   if (result !== undefined) {
     res.json({
       downloadUrl: `${rootUrl}/list/download/${setId}.svg`,
-      data: [result, v1, v2, v3]
+      images: [result, v1, v2, v3]
     })
     return;
   }
