@@ -1,9 +1,14 @@
-## Setup Script
-### Run `yarn install` to install all the dependencies main directory.
+# Setup Script
 
-### Run `yarn setup` to install all the dependencies in the api and front end application
+###  Instructions
+
+Run `yarn install` to install all the dependencies main directory.
+
+Run `yarn setup` to install all the dependencies in the api and front end application
+
+
 ## Available Scripts
-
+-------
 In the project directory, you can run:
 
 ### `yarn all`
@@ -17,7 +22,7 @@ Note: The front end needs the api server to load the images.
 ### `yarn start:back-end`
 - Runs the api server only.
 ## Part 1 (backend)
-
+----
 ### Routes
 
   - api/list
@@ -54,7 +59,7 @@ Set of 4 Images:
   - A .zip file containing 4 images.
 
 ## Part 2 (frontend)
-
+-----
 - Show a list of the images loaded and on hover show the image name and filesize.
 - On click on the image will load a carousel with 4 variations of the image with its respective filesize and name.
 - On click on the close button will remove the active state in the previously selected image and will close the carousel.
