@@ -1,0 +1,15 @@
+{
+  "name": "viewer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start:front-end" : "yarn --cwd ./frontend start",
+    "start:back-end" : "yarn --cwd ./api/ start",
+    "all": "concurrently yarn:start:*"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "dotenv": "^10.0.0"
+  }
+}

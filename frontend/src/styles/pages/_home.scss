@@ -1,0 +1,9 @@
+.app__page__home {
+  height: calc(100vh - 160px);
+  display: flex;
+
+  &--list {
+    overflow: scroll;
+    width: 100%;
+  }
+}

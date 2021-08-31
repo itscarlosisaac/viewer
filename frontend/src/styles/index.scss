@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+// Layout
+@import './layout/footer';
+@import './layout/header';
+
+// Pages
+@import './pages/home';
+
+@import './components/product/product_list';
+@import './components/carousel/carousel';
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #161616;
+  font-family: 'Roboto', sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

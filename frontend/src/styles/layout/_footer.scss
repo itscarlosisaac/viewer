@@ -1,0 +1,30 @@
+.app__footer {
+  width:100vw;
+  height: 80px;
+  background: #111111;
+  border-top: 1px solid #5b5b5b;
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+  padding:2rem;
+  box-sizing: border-box;
+  .app__zoom__manager {
+    display: flex;
+    .zoom__handler {
+      margin: 0 20px;
+    }
+    .zoom__out {
+      height: 20px;
+      width: 20px;
+      background: #5b5b5b;
+      display: block;
+    }
+    .zoom__in {
+      height: 20px;
+      width: 20px;
+      background: #5b5b5b;
+      display: flex;
+      position: relative;
+    }
+  }
+}
